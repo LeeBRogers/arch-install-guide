@@ -87,12 +87,12 @@ Recommended partition scheme:
 | `/`             | Remaining space| Linux filesystem| 
 
 ### Create partitions:
-First, list the primary disk to find the device name:
+List the disks to find the device name:
 ```
 fdisk -l
 ```
 
-The output shows the primary disk name is `/dev/sda`:
+The output shows the disk name is `/dev/sda`:
 ```
 Disk /dev/sda: 64 GiB, 68719476736 bytes, 134217728 sectors
 Disk model: VBOX HARDDISK   
@@ -102,24 +102,24 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: gpt
 Disk identifier: A7B0EEB0-2290-4E4B-AD46-F0EFC0B1CBE0
 ```
+Be sure to check the size of the disk to know which drive you want to install the OS on.
 
-To partition the disk using `cfdisk`:
+Partition the disk using `cfdisk`:
 ```
 cfdisk /dev/sda
 ```
-```
-Select [New]>Partition size: +512M
-Select [Type]>EFI System
-```  
-```
-Select Free space>New>Partition size: 4G
++ Select [New]
++ Partition size: +512M
++ Select [Type]>EFI System  
+
+Select Free space
+New>Partition size: 4G
 Select [Type]>Linux Swap
-```
-```
+
+
 Select Free space>New>Partition size: Remaining space
 Select [Type]>Linux filesystem
-```
-```
+
 Select [Write]: Type "yes" to write partitions to disk.
 ```
 ## Formatting
