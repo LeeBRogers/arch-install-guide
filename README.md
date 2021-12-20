@@ -487,7 +487,7 @@ Make a backup of the mirrorlist:
 ```
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 ```
-Configure `/etc/xdg/reflector/reflector.conf':
+Configure `/etc/xdg/reflector/reflector.conf`:
 ```
 --save /etc/pacman.d/mirrorlist
 --country GB,DE,FR
