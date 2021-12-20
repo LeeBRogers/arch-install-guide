@@ -201,8 +201,14 @@ To install the base system packages:
 ```
 pacstrap /mnt base base-devel linux linux-firmware 
 ```
+You may want to install additional needed packages not included within the base install such as:
++ `sudo`
++ `nano`
++ `vim`
++ `git`
+
 **Note: While base-devel is not included within the default pacstrap command on the wiki, many packages will not work without it so we will include it.**
-sudo nano vim
+
 ## Configuring the system
 Now the base system needs to configured as follows:
 
@@ -446,8 +452,12 @@ Enable the service:
 sudo systemctl enable fstrim.timer
 ```
 
-
-
+### Package Cache Hook
+To improve system performance enable `paccache.timer` which will clear the package cache weekly.
+```
+sudo pacman -S pacman-contrib
+sudo systemctl enable paccache.timer
+```
 
 
 
