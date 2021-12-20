@@ -475,6 +475,52 @@ sudo pacman -S pipewire-pulse
 
 Let's make some system tweaks for better optimisation.
 
+#### Update Mirrorlist
+The mirrorlist should be configured for faster download speeds.
+
+Install `reflector`:
+
+```
+sudo pacman -S reflector
+```
+Make a backup of the mirrorlist:
+```
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+```
+Configure `/etc/xdg/reflector/reflector.conf':
+```
+--save /etc/pacman.d/mirrorlist
+--country GB,DE,FR
+--protocol https
+--latest 20
+--sort rate
+--age 12
+```
+Then enable and start `systemctl reflector.timer` to rank the mirrors weekly:
+```
+sudo systemctl enable reflector.timer
+sudo systemctl start reflector.timer
+```
+You can create a pacman hook that will start reflector.service and remove the .pacnew file created every time pacman-mirrorlist gets an upgrade:
+Create the file `/etc/pacman.d/hooks/mirrorupgrade.hook` and edit it:
+```
+sudo mkdir -p /etc/pacman.d/hooks
+sudo touch /etc/pacman.d/hooks/mirrorupgrade.hook
+sudo nano etc/pacman.d/hooks/mirrorupgrade.hook
+```
+```
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Updating pacman-mirrorlist with reflector and removing pacnew...
+When = PostTransaction
+Depends = reflector
+Exec = /bin/sh -c 'systemctl start reflector.service; [ -f /etc/pacman.d/mirrorlist.pacnew ] && rm /etc/pacman.d/mirrorlist.pacnew'
+```
+
 #### Tear Free & Free Sync
 TearFree and Free Sync will prevent screen tearing and flicker. Create the file `/etc/X11/xorg.conf.d/20-amdgpu.conf` and insert the following:
 ```
