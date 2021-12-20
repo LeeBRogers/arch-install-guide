@@ -459,5 +459,32 @@ sudo pacman -S pacman-contrib
 sudo systemctl enable paccache.timer
 ```
 
+### Set Keyboard Layout
+```
+sudo localectl set-x11-keymap gb
+```
 
+## Audio
+By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
+Install and enable PipeWire:
+```
+sudo pacman -S pipewire
+sudo pacman -S pipewire-pulse
+```
+## Tweaks
 
+Let's make some system tweaks for better optimisation.
+
+#### Tear Free & Free Sync
+TearFree and Free Sync will prevent screen tearing and flicker. Create the file `/etc/X11/xorg.conf.d/20-amdgpu.conf` and insert the following:
+```
+sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf
+```
+```
+Section "Device"
+     Identifier "AMD"
+     Driver "amdgpu"
+     Option "TearFree" "true"
+     Option "VariableRefresh" "true"
+EndSection
+```
