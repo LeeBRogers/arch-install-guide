@@ -14,8 +14,8 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
 Before installation, make sure to:
 + Read the [official wiki](https://wiki.archlinux.org/title/installation_guide).
 + Aquire the ISO [image](https://archlinux.org/download/).
-+ Verify the ISO signature
-+ Boot the live enviroment
++ Verify the ISO signature.
++ Boot the live enviroment.
 
 ## Set Keyboard Layout:
 The default keyboard layout is US. The layout can be changed with `loadkeys`:
@@ -25,21 +25,21 @@ UK:
 loadkeys uk
 ```
 ## Verify the boot mode
-Verify the boot mode andlist the efivars directory: 
+Verify the boot mode and list the efivars directory: 
 ```
 ls /sys/firmware/efi/efivars
 ```
-The output should display the directory without error if the system is using UEFI. If not, it may be using Legacy/CSM.
+The output should display the directory without any errors if the system is using UEFI. If not, it may be using Legacy/CSM.
+
 # Update System Clock
 Synchronise the system clock:
 ```
 timedatectl set-ntp true
 ```
-
 ## Network Connection
 
 ### Ethernet
-Firstly, check the network interface is up:
+Check the network interface is up:
 ```
 ip link
 ```
@@ -53,9 +53,16 @@ The output should look similar to this:
     link/ether f4:b3:01:69:fe:92 brd ff:ff:ff:ff:ff:ff
 ```
 If the interface is DOWN, you should enable it:
+
 ```
-ip link set enp0s3 up
+ip link set enp6s0 up
 ```
+OR
+```
+ip link set wlp5s0 up
+```
++ `enp6s0` = wired interface
++ `wlp5s0` = wireless interface
 ### Wi Fi
 Connect to Wi Fi interface using iwctl:
 ```
@@ -69,7 +76,7 @@ station wlan0 connect SSID
 ```
 ping archlinux.org
 ```
-The output should contain the following if connected:
+The ping should output a response if connected:
 ```
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=49 time=54.1 ms
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=3 ttl=49 time=50.1 ms
@@ -77,7 +84,11 @@ The output should contain the following if connected:
 ```
 
  
-## Partitioning
+# Partitioning
+We need to partition the disk with a suitable layout depending on how we want to configure the system. 
+
+## Unencrypted System
+
 Recommended partition scheme:
 
 | Partition     | Size             | Type            |
@@ -87,12 +98,15 @@ Recommended partition scheme:
 | `/`             | Remaining space| Linux filesystem| 
 
 ### Create partitions:
+The disks are assigned to a block device such as `/dev/sda`, `/dev/nvme0n1` and `/dev/mmcblk`. 
+
 List the disks to find the device name:
+
 ```
 fdisk -l
 ```
+Take note of the block device name of the disk you want to use for the installation. In this example it is `/dev/sda`:
 
-The output shows the disk name is `/dev/sda`:
 ```
 Disk /dev/sda: 64 GiB, 68719476736 bytes, 134217728 sectors
 Disk model: VBOX HARDDISK   
@@ -102,44 +116,76 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: gpt
 Disk identifier: A7B0EEB0-2290-4E4B-AD46-F0EFC0B1CBE0
 ```
-Be sure to check the size of the disk to know which drive you want to install the OS on.
-
-Partition the disk using `cfdisk`:
+Wipe the disk before creating the partitions using `gdisk`:
 ```
-cfdisk /dev/sda
+gdisk /dev/sda
 ```
-+ Select [New]
-+ Partition size: +512M
-+ Select [Type]>EFI System  
++ Press <kbd>x</kbd> to enter expert mode.
++ Press <kbd>z</kbd> to wipe the disk.
++ Press <kbd>Y</kbd> and hit Enter to confirm.
 
-Select Free space
-New>Partition size: 4G
-Select [Type]>Linux Swap
-
-
-Select Free space>New>Partition size: Remaining space
-Select [Type]>Linux filesystem
-
-Select [Write]: Type "yes" to write partitions to disk.
+Then create the partitions with `cgdisk`:
 ```
-## Formatting
+cgdisk /dev/sda
+```
+Create `boot` partition:
++ Navigate to <kbd>New</kbd> and hit <kbd>Enter</kbd>
++ Press <kbd>Enter</kbd> for 'First sector'.
++ Type `+512M` for last sector and hit <kbd>Enter</kbd>
++ Type `ef00` for partition type 'EFI System' and hit <kbd>Enter</kbd>
++ Type `boot` for partition label and hit <kbd>Enter</kbd>
+
+Create `swap` partition:
++ Select `free space` and hit <kbd>Enter</kbd>
++ Navigate to <kbd>New</kbd> and hit <kbd>Enter</kbd>
++ Press <kbd>Enter</kbd> for 'First sector'.
++ Type `4G` for last sector and hit <kbd>Enter</kbd>
++ Type `8200` for partition type 'Linux Swap' and hit <kbd>Enter</kbd>
++ Type `swap` for partition label and hit <kbd>Enter</kbd>
+
+Create `root` partition:
++ Select `free space` and hit <kbd>Enter</kbd>
++ Navigate to <kbd>New</kbd> and hit <kbd>Enter</kbd>
++ Press <kbd>Enter</kbd> for 'First sector'.
++ Press <kbd>Enter</kbd> for last sector and hit <kbd>Enter</kbd>
++ Type `8300` for partition type 'Linux filesystem' and hit <kbd>Enter</kbd>
++ Type `root` for partition label and hit <kbd>Enter</kbd>
++ Navigate to <kbd>Write</kbd>, type `YES` and hit <kbd>Enter</kbd>
++ Navigate to <kbd>Quit></kbd> and type `YES` and hit <kbd>Enter</kbd> to write changes.
+
+# Formatting
+After creating the partitions they need to be formatted with suitable filesystems:
+  
+Format `/dev/sda1` as `FAT32`. This will be the `boot` partition.
 ```
 mkfs.fat -F 32 /dev/sda1 
+```
+Create the `swap` and enable it:
+```
 mkswap /dev/sda2 
 swapon /dev/sda2
-mkfs.btrfs /dev/sda3
+```
+Format `/dev/sda3` as `EXT4`. This will be the `root` partition.
+```
+mkfs.ext4 /dev/sda3
 ```
 ### Mounting the file systems
+Create and mount the partitions to their respective directories.
 
-Mount the `root` partition:
-
+Mount `/dev/sda3` to `mnt`. This will be `/`.
 ```
 mount /dev/sda3 /mnt
 ```
-Mount the `/boot` partition:
+Create a `/boot` mountpoint:
 ```
-mount /dev/sda1 /mnt/boot
+mkdir /mnt/boot
 ```
+Mount `/dev/sda2` to `/mnt/boot`. This will be `/boot`.
+```
+mount /dev/sda2 /mnt/boot
+```
+The `swap` partition does not need to be mounted since it is enabled.
+
 Check the partitions are correct using the `lsblk` command:
 ```
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
@@ -155,14 +201,13 @@ To install the base system packages:
 ```
 pacstrap /mnt base base-devel linux linux-firmware 
 ```
-You may want to install any additional packages within pacstrap such as:
-`sudo`, `vim/nano`, `git`, `rsync` and `base-devel`.
+**Note: While base-devel is not included within the default pacstrap command on the wiki, many packages will not work without it so we will include it.**
 
-**Note: You may wish to substitute `nano` with your text editor of choice e.g `vim`.**
 ## Configuring the system
+Now the base system needs to configured as follows:
 
 ### Fstab:
-To generate the fstab file which will be used to mount the filesystems:
+Generate the fstab file which will be used to mount the filesystems:
 ```
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
@@ -171,8 +216,9 @@ Check that the fstab file was generated properly and the entries are correct:
 cat /mnt/etc/fstab
 ```
 If the fstab file does not contain the entries, regenerate the file.
-### Chroot 
-To change root into the system:
+### Chroot
+
+Chroot into the system:
 ```
 arch-chroot /mnt
 ```
@@ -182,13 +228,17 @@ Set the timezone:
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 ```
 **Note: Available timezones can be listed with `timedatectl list-timezones`**.
+
 ### HWClock
+
 Set the HWClock:
 ```
 hwclock --systohc
 ```
 This will generate `/etc/adjtime`.
+
 ### Localisation
+
 Edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF-8` and any other needed locales. e.g `en_GB.UTF-8 UTF-8`.
 
 Then generate the locales:
@@ -197,22 +247,22 @@ locale-gen
 ```
 Set the LANG variable:
 ```
-echo LANG=en_GB.UTF-8 > /etc/locale.conf
+echo "LANG=en_GB.UTF-8" > /etc/locale.conf
 ```
 Set the console keyboard layout:
 ```
-echo KEYMAP=uk > /etc/vconsole.conf
+echo "KEYMAP=uk" > /etc/vconsole.conf
 ```
 ## Network configuration
 Set the hostname e.g `arch`:
 ```
-echo arch > /etc/hostname
+echo "arch" > /etc/hostname
 ```
 Configure the `hosts` file:
 ```
-echo 127.0.0.1  localhost >> /etc/hosts
-echo ::1        localhost >> /etc/hosts                   
-echo 127.0.1.1  localhost.localdomain   arch >> /etc/hosts
+echo "127.0.0.1  localhost" >> /etc/hosts
+echo "::1        localhost" >> /etc/hosts                   
+echo "127.0.1.1  localhost.localdomain   arch" >> /etc/hosts
 ```
 **Note: Append `arch` with the hostname you have set.**
 ### Root password
@@ -221,17 +271,35 @@ Set the root user password:
 passwd
 ```
 ### Install Bootloader
-A bootloader needs to be installed for system initialisation. For this configuration GRUB will be the default option:
+A bootloader needs to be installed for system initialisation. For this configuration systemd-boot will be the default option:
 ```
-pacman -S grub efibootmgr
+bootctl install
+pacman -S efibootmgr
 ```
+Create and configure `/boot/loader/loader.conf:
 ```
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+default  arch.conf
+timeout  5
+console-mode max
+editor   no
 ```
-Then generate the GRUB confifuration file:
+Create a loader configuration file `/boot/loader/entries/arch.conf`
 ```
-grub-mkconfig -o /boot/grub.grub.cfg
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /amd-ucode.img
+initrd  /initramfs-linux.img
+options root="UUID=arch" quiet splash rw`
 ```
+Create and configure fallback:
+```
+title   Arch Linux (fallback initramfs)
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux-fallback.img
+options root="UUID=arch" rw
+```
+
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
 #### For AMD CPUs:
@@ -254,7 +322,7 @@ systemctl enable NetworkManager.service
 ### Reboot
 ```
 exit
-umount -a /mnt
+umount -a
 reboot
 ```
 # Post Installation
@@ -289,47 +357,11 @@ Multilib support can be enabled by editing `/etc/pacman.conf` and uncommenting t
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
-```
 ### Update the system
 Before installing any other packages, update the system:
 ```
 sudo pacman -Syu
 ```
-
-### Install AUR Helper
-Git clone yay and build the package:
-```
-git clone https://aur.archlinux.org/yay.git
-cd yay/
-makepkg -si
-```
-### Install & configure Snapper wrappers
-Install `snapper-gui-git` and `snap-pac-grub` which will allow you to view snapshots on GRUB menu and manage them with a GUI.
-```
-yay -S snapper-gui-git
-yay -S snap-pac-grub
-```
-### Backup boot partition hook
-Create a hook file with the following contents:
-```
-sudo touch /etc/pacman.d/hooks/50-bootbackup.hook
-```
-```
-[Trigger]
-Operation = Upgrade
-Operation = Install
-Operation = Remove
-Type = Path
-Target = usr/lib/modules/*/vmlinuz
-
-[Action]
-Depends = rsync
-Description = Backing up /boot...
-When = PostTransaction
-Exec = /usr/bin/rsync -a --delete /boot /.bootbackup
-```
-This will ensure the `boot` partition is snapshotted on kernel upgrade.
-
 ### Display server
 A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg-server` pacxkage:
 ```
@@ -394,8 +426,13 @@ Obviously a modern system will want a web browser to navigate the web, so let's 
 ```
 sudo pacman -S firefox
 ```
-## Extras
-
+### Install AUR Helper
+Git clone yay and build the package:
+```
+git clone https://aur.archlinux.org/yay.git
+cd yay/
+makepkg -si
+```
 ### Firewall
 Arch Linux does not have any ports open by default. However, it is recommended to install a suitable Firewall for better security:
 ```
