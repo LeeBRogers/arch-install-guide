@@ -335,12 +335,17 @@ Set the user password:
 ```
 passwd username
 ```
-### Install Snapper
-```
-pacman -S snapper
-```
 ## Post Install Configuration
-Ensure you are connected to the internet before doing these steps. 
+Ensure you are connected to the internet before doing these steps.
+
+Install `sudo`,`nano` and `vi`:
+As root:
+```
+pacman -S sudo
+pacman -S nano
+pacman -S vi
+```
+
 ### Sudoers
 Edit the sudoers file and uncomment this line:
 ```
@@ -395,7 +400,7 @@ The following modules are loaded before any boot hooks are
 # run.  Advanced users may wish to specify all system modules
 # in this array.  For instance:
 #     MODULES=(piix ide_disk reiserfs)
-MODULES=(btrfs amdgpu)
+MODULES=(amdgpu)
 ```
 Don't forget to regenerate the initramfs:
 ```
@@ -427,6 +432,10 @@ Obviously a modern system will want a web browser to navigate the web, so let's 
 sudo pacman -S firefox
 ```
 ### Install AUR Helper
+Install git:
+```
+sudo pacman -S git
+```
 Git clone yay and build the package:
 ```
 git clone https://aur.archlinux.org/yay.git
