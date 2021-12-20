@@ -202,7 +202,7 @@ To install the base system packages:
 pacstrap /mnt base base-devel linux linux-firmware 
 ```
 **Note: While base-devel is not included within the default pacstrap command on the wiki, many packages will not work without it so we will include it.**
-
+sudo nano vim
 ## Configuring the system
 Now the base system needs to configured as follows:
 
@@ -276,29 +276,6 @@ A bootloader needs to be installed for system initialisation. For this configura
 bootctl install
 pacman -S efibootmgr
 ```
-Create and configure `/boot/loader/loader.conf:
-```
-default  arch.conf
-timeout  5
-console-mode max
-editor   no
-```
-Create a loader configuration file `/boot/loader/entries/arch.conf`
-```
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /amd-ucode.img
-initrd  /initramfs-linux.img
-options root="UUID=arch" quiet splash rw`
-```
-Create and configure fallback:
-```
-title   Arch Linux (fallback initramfs)
-linux   /vmlinuz-linux
-initrd  /intel-ucode.img
-initrd  /initramfs-linux-fallback.img
-options root="UUID=arch" rw
-```
 
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
@@ -326,6 +303,7 @@ umount -a
 reboot
 ```
 # Post Installation
+
 ### Users
 Create a user and append `username` with your name:
 ```
