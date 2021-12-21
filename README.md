@@ -282,6 +282,7 @@ A bootloader needs to be installed for system initialisation. For this configura
 bootctl install
 pacman -S efibootmgr
 ```
+### Loaders
 
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
@@ -438,7 +439,7 @@ Basic UFW configuration which will deny all by default, allow any protocol from 
 sudo ufw default deny
 sudo ufw allow from 192.168.0.0/24
 sudo ufw allow Deluge
-sudo ufw limit ssh```
+sudo ufw limit ssh
 ```
 Enable the service:
 ```
