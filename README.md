@@ -426,6 +426,8 @@ git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
 ```
+# Avahi
+
 ### Firewall
 Arch Linux does not have any ports open by default. However, it is recommended to install a suitable Firewall for better security:
 ```
@@ -534,6 +536,17 @@ Section "Device"
      Option "VariableRefresh" "true"
 EndSection
 ```
+#### Power Saving
+Power saving features can be disabled to improve network latency issues. Since I use an `Intel AX200` chipset, I will create the file `/etc/modprobe.d/iwlmvm.conf` and disable power saving state:
+
+```
+sudo touch /etc/modprobe.d/iwlmvm.conf
+```
+Edit the newly created file:
+```
+options iwlmvm power_scheme=1
+```
+
 ### Optional
 
 These are just a collection of optional tweaaks that the majority of users may not need or use.
