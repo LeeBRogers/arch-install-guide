@@ -337,7 +337,7 @@ passwd username
 ```
 ## Post Install Configuration
 Ensure you are connected to the internet before doing these steps.
-```
+
 Install `sudo`,`nano` and `vi`:
 As root:
 ```
@@ -351,10 +351,9 @@ Edit the sudoers file and uncomment this line:
 ```
 EDITOR=nano visudo
 ```
-```
 ## Uncomment to allow members of group wheel to execute any command
 %wheel ALL=(ALL) ALL
-```
+
 ### Multilib
 
 Multilib support can be enabled by editing `/etc/pacman.conf` and uncommenting this line:
