@@ -534,3 +534,14 @@ Section "Device"
      Option "VariableRefresh" "true"
 EndSection
 ```
+### Optional
+
+These are just a collection of optional tweaaks that the majority of users may not need or use.
+
+### Install Missing Firmware
+Although the missing firmware is not needed in most cases, you can install them to remove the warning messages when regenerating the `initramfs`:
+
+```
+sudo pacman -S aic94xx-firmware wd719x-firmware upd72020x-fw
+```
+
