@@ -282,7 +282,22 @@ A bootloader needs to be installed for system initialisation. For this configura
 bootctl install
 pacman -S efibootmgr
 ```
-### Loaders
+Create and configure `/boot/loader/loader.conf`:
+
+```
+default  arch.conf
+timeout  4
+console-mode max
+editor   no
+```
+Create a loader configuration file:
+
+```
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root=UUID="UUID" quiet splash rw
 
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
