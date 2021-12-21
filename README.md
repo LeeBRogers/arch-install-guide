@@ -571,7 +571,7 @@ The output says the connected displays are `DisplayPort-1` and `DisplayPort-2`.
 DisplayPort-1 connected primary 1920x1080+0+0 
 DisplayPort-2 connected 1920x1080+1920+0 
 ```
-As we can see, my secondary monitor port is `DisplayPort-2'.
+As we can see, my secondary monitor port is `DisplayPort-2`.
 Once we know the names of the connected ports, create the file `/usr/share/sddm/scripts/Xsetup`:
 ```
 sudo nano /usr/share/sddm/scripts/Xsetup
