@@ -537,7 +537,7 @@ Section "Device"
 EndSection
 ```
 #### Power Saving
-Power saving features can be disabled to improve network latency issues. Since I use an `Intel AX200` chipset, I will create the file `/etc/modprobe.d/iwlmvm.conf` and disable power saving state:
+Power saving features can be disabled to improve network latency issues. Since I use an `Intel AX200` chipset on desktop, I will create the file `/etc/modprobe.d/iwlmvm.conf` and disable power saving state:
 
 ```
 sudo touch /etc/modprobe.d/iwlmvm.conf
@@ -546,6 +546,7 @@ Edit the newly created file:
 ```
 options iwlmvm power_scheme=1
 ```
+**Note: Laptop users will want to keep the power saving features enabled to preserve battery.**
 
 ### Optional
 
@@ -557,4 +558,39 @@ Although the missing firmware is not needed in most cases, you can install them 
 ```
 sudo pacman -S aic94xx-firmware wd719x-firmware upd72020x-fw
 ```
+### Disable Secondary Login Screen
+If using multiple monitors, the secondary display can be disabled for aesthetics.
+
+First we need to find the name of the display ports connected to the system:
+
+```
+xrandr | grep ' connected'
+```
+The output says the connected displays are `DisplayPort-1` and `DisplayPort-2`.
+```
+DisplayPort-1 connected primary 1920x1080+0+0 
+DisplayPort-2 connected 1920x1080+1920+0 
+```
+As we can see, my secondary monitor port is `DisplayPort-2'.
+Once we know the names of the connected ports, create the file `/usr/share/sddm/scripts/Xsetup`:
+```
+sudo nano /usr/share/sddm/scripts/Xsetup
+```
+Edit the file and append `DisplayPort-2` with the name of the secondary display port corresponding to the output from `xrandr`.
+
+```
+#!/bin/sh
+# Xsetup - run as root before the login dialog appears
+
+xrandr --output DisplayPort-2 --off
+```
+Finally, edit `/etc/sddm.conf` to point to the script we set up above:
+
+```
+[X11]
+# Xsetup script path
+# A script to execute when starting the display server
+DisplayCommand=/usr/share/sddm/scripts/Xsetup
+```
+
 
