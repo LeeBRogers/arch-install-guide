@@ -298,7 +298,7 @@ linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=UUID="UUID" quiet splash rw
-
+```
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
 #### For AMD CPUs:
@@ -337,7 +337,7 @@ passwd username
 ```
 ## Post Install Configuration
 Ensure you are connected to the internet before doing these steps.
-
+```
 Install `sudo`,`nano` and `vi`:
 As root:
 ```
