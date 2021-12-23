@@ -342,14 +342,6 @@ passwd username
 ## Post Install Configuration
 Ensure you are connected to the internet before doing these steps.
 
-Install `sudo`,`nano` and `vi`:
-As root:
-```
-pacman -S sudo
-pacman -S nano
-pacman -S vi
-```
-
 ### Sudoers
 Edit the sudoers file and uncomment this line:
 ```
