@@ -31,7 +31,7 @@ ls /sys/firmware/efi/efivars
 ```
 The output should display the directory without any errors if the system is using UEFI. If not, it may be using Legacy/CSM.
 
-# Update System Clock
+## Update System Clock
 Synchronise the system clock:
 ```
 timedatectl set-ntp true
@@ -197,6 +197,8 @@ sda      8:0    0    64G  0 disk
 sr0     11:0    1 850.3M  0 rom  /run/archiso/bootmnt
 ```
 # Base System Installation
+
+## Install base system
 To install the base system packages:
 ```
 pacstrap /mnt base base-devel linux linux-firmware 
