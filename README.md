@@ -230,14 +230,13 @@ Chroot into the system:
 ```
 arch-chroot /mnt
 ```
-### Timezone
+### Set Time & Date
+#### Timezone
 Set the timezone:
 ```
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 ```
 **Note: Available timezones can be listed with `timedatectl list-timezones`**.
-
-### HWClock
 
 Set the HWClock:
 ```
