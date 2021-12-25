@@ -9,7 +9,7 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
 + KDE Plasma
 
 ## Table of Contents
-  * [**Let's Begin**](##Pre-installation)
+  * [**Let's Begin**](#Pre-installation)
 
 **Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
