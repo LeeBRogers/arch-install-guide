@@ -224,7 +224,7 @@ Check that the fstab file was generated properly and the entries are correct:
 cat /mnt/etc/fstab
 ```
 If the fstab file does not contain the entries, regenerate the file.
-### Chroot
+## Chroot
 
 Chroot into the system:
 ```
@@ -245,7 +245,7 @@ hwclock --systohc
 ```
 This will generate `/etc/adjtime`.
 
-### Localisation
+## Localisation
 
 Edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF-8` and any other needed locales. e.g `en_GB.UTF-8 UTF-8`.
 
@@ -261,7 +261,7 @@ Set the console keyboard layout:
 ```
 echo "KEYMAP=uk" > /etc/vconsole.conf
 ```
-### Network configuration
+## Network configuration
 Set the hostname e.g `arch`:
 ```
 echo "arch" > /etc/hostname
