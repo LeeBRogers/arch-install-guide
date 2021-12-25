@@ -180,9 +180,9 @@ Create a `/boot` mountpoint:
 ```
 mkdir /mnt/boot
 ```
-Mount `/dev/sda2` to `/mnt/boot`. This will be `/boot`.
+Mount `/dev/sda1` to `/mnt/boot`. This will be `/boot`.
 ```
-mount /dev/sda2 /mnt/boot
+mount /dev/sda1 /mnt/boot
 ```
 The `swap` partition does not need to be mounted since it is enabled.
 
@@ -196,7 +196,7 @@ sda      8:0    0    64G  0 disk
 └─sda3   8:3    0  59.5G  0 part 
 sr0     11:0    1 850.3M  0 rom  /run/archiso/bootmnt
 ```
-## Install the base packages
+# Base System Installation
 To install the base system packages:
 ```
 pacstrap /mnt base base-devel linux linux-firmware 
@@ -259,7 +259,7 @@ Set the console keyboard layout:
 ```
 echo "KEYMAP=uk" > /etc/vconsole.conf
 ```
-## Network configuration
+### Network configuration
 Set the hostname e.g `arch`:
 ```
 echo "arch" > /etc/hostname
