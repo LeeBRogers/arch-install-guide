@@ -198,7 +198,7 @@ sr0     11:0    1 850.3M  0 rom  /run/archiso/bootmnt
 ```
 # Base System Installation
 
-## Install base system
+### Install base system
 To install the base system packages:
 ```
 pacstrap /mnt base base-devel linux linux-firmware 
