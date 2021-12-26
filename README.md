@@ -9,7 +9,7 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
 + KDE Plasma
 
 ## Table of Contents
-  * [**Let's Begin**](#Pre-installation)
+  * [**Pre Installation**](#Pre-installation)
 
 **Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
@@ -20,28 +20,28 @@ Before installation, make sure to:
 + Verify the ISO signature.
 + Boot the live enviroment.
 
-## Set Keyboard Layout:
+### Set Keyboard Layout:
 The default keyboard layout is US. The layout can be changed with `loadkeys`:
 
 UK:
 ```
 loadkeys uk
 ```
-## Verify the boot mode
+### Verify the boot mode
 Verify the boot mode and list the efivars directory: 
 ```
 ls /sys/firmware/efi/efivars
 ```
 The output should display the directory without any errors if the system is using UEFI. If not, it may be using Legacy/CSM.
 
-## Update System Clock
+### Update System Clock
 Synchronise the system clock:
 ```
 timedatectl set-ntp true
 ```
-## Network Connection
+### Network Connection
 
-### Ethernet
+#### Ethernet
 Check the network interface is up:
 ```
 ip link
@@ -66,7 +66,7 @@ ip link set wlp5s0 up
 ```
 + `enp6s0` = wired interface
 + `wlp5s0` = wireless interface
-### Wi Fi
+#### Wi Fi
 Connect to Wi Fi interface using iwctl:
 ```
 iwctl
@@ -75,7 +75,7 @@ station wlan0 scan
 station wlan0 get-networks
 station wlan0 connect SSID
 ```
-### Testing Network Connection:
+#### Testing Network Connection:
 ```
 ping archlinux.org
 ```
