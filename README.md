@@ -381,7 +381,7 @@ sudo pacman -Syu
 
 
 ### Xorg & GPU Drivers
-A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg-server` pacxkage:
+A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg` package and Xorg driver package:
 ```
 sudo pacman -S xorg xf86-video-your gpu type]
 ```
