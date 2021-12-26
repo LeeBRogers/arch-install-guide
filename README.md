@@ -383,7 +383,7 @@ Before installing any other packages, update the system:
 ```
 sudo pacman -Syu
 ```
-### Display server
+### Xorg
 A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg-server` pacxkage:
 ```
 sudo pacman -S xorg-server
