@@ -16,6 +16,7 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
     * [Base System](#install-base-system)
     * [Generate Fstab](#fstab)
   * [**Chroot**](#chroot)
+    * [Date & Time](#set-time-and-date)
 **Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
 ## Pre installation
