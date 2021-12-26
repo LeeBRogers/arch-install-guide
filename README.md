@@ -360,24 +360,21 @@ Uncomment the `wheel` group to allow members of group wheel to execute any comma
 ```
 %wheel ALL=(ALL) ALL
 ```
-## Logout ROOT
+### Logout ROOT
 
 ```
 exit
 ```
 ## Login as USER
-### Multilib
 
-Multilib support can be enabled by editing `/etc/pacman.conf` and uncommenting this line:
-```
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
 ### Update the system
 Before installing any other packages, update the system:
 ```
 sudo pacman -Syu
 ```
+ /etc/pacman.d/mirrorlist
+
+
 ### Xorg
 A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg-server` pacxkage:
 ```
