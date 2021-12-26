@@ -21,6 +21,7 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [Add user](#users)
     * [Sudo Command](#sudoers)
   * [User Login](#login-as-user)
+    * [Xorg & GPU Drivers](#xorg--gpu-drivers)
     
 ## Pre installation
 Before installation, make sure to:
