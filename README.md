@@ -105,8 +105,6 @@ The ping should output a response if connected:
 # Partitioning
 We need to partition the disk with a suitable layout depending on how we want to configure the system. 
 
-## Unencrypted System
-
 Recommended partition scheme:
 
 | Partition     | Size             | Type            |
