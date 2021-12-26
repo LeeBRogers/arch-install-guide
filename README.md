@@ -375,17 +375,10 @@ sudo pacman -Syu
  /etc/pacman.d/mirrorlist
 
 
-### Xorg
+### Xorg & GPU Drivers
 A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg-server` pacxkage:
 ```
-sudo pacman -S xorg-server
-```
-## Drivers
-You will want to install the appropriate drivers for your hardware and system configuration for better optimisation and performance.
-Since I will be using an RDNA2+ AMD GPU, `xf86-video-amdgpu` and `vulkan-radeon` will be installed:
-```
-sudo pacman -S xf86-video-amdgpu
-sudo pacman -S vulkan-radeon
+sudo pacman -S xorg xf86-video-your gpu type]
 ```
 Optionally, to enable 32 bit application support install the `lib32-mesa` and `lib32-vulkan-radeon` packages:
 ```
