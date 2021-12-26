@@ -301,6 +301,7 @@ A bootloader needs to be installed for system initialisation. For this configura
 ```
 bootctl install
 ```
+### Bootloader Configuration
 Create and configure `/boot/loader/loader.conf`:
 
 ```
@@ -395,6 +396,10 @@ A display server is needed to process and manage the GUI. Install the `xorg` pac
 ```
 sudo pacman -S xorg xf86-video-your gpu type]
 ```
++ For AMD GPUs, install `xf86-video-amdgpu`
++ For NVIDIA GPUs, install `nvidia and `nvidia-settings`. 
++ For legacy Radeon GPUs, install `xf86-video-ati`.
++ For Intel iGPU install `xf86-video-intel`
 ### Enable Multilib Repository
 Multilib includes 32-bit software and library applications. (e.g. Steam).
 
@@ -427,7 +432,7 @@ sudo pacman -S mesa-vdpau
 sudo pacman -S lib32-mesa-vdpau
 ```
 ### Early KMS Loading
-To load the GPU driver modules early, edit `/etc/mkinitcpio.conf` and add `amdgpu` to the kernel MODULES:
+To load the GPU driver modules early, edit `/etc/mkinitcpio.conf` and add `[your-driver-module]` to the kernel MODULES:
 ```
 sudo nano /etc/mkinitcpio.conf
 ```
@@ -438,6 +443,9 @@ The following modules are loaded before any boot hooks are
 #     MODULES=(piix ide_disk reiserfs)
 MODULES=(amdgpu)
 ```
++ For AMD add `amdgpu` for AMD
++ For NVIDIA add `nvidia`, nvidia_modeset`, `nvidia_uvm` and `nvidia_drm`.
+
 Don't forget to regenerate the initramfs:
 ```
 sudo mkinitcpio -p linux
