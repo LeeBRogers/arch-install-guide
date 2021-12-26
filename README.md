@@ -17,6 +17,10 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [Bootloader](#install-bootloader)
     * [CPU Microcode](#install-cpu-microcode)
     * [Network Manager](#install-network-manager)
+  * [Post Installation](#post-installation)
+    * [Add user](#add-user)
+    * [Sudo Command](#sudoers)
+  * [User Login](#Display Server & GPU Drivers](#xorg--gpu-drivers)
 ## Pre installation
 Before installation, make sure to:
 + Read the [official wiki](https://wiki.archlinux.org/title/installation_guide).
@@ -340,7 +344,7 @@ reboot
 
 ### Login as ROOT
 
-### Add User
+### Users
 Create a user and append `username` with your name:
 ```
 useradd -m -G wheel -s /bin/bash username
