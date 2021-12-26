@@ -264,11 +264,14 @@ Set the console keyboard layout:
 echo "KEYMAP=uk" > /etc/vconsole.conf
 ```
 ## Network configuration
+
+### Set Hostname
 Set the hostname e.g `arch`:
 ```
 echo "arch" > /etc/hostname
 ```
-Configure the `hosts` file:
+
+### Configure the `hosts` file:
 ```
 echo "127.0.0.1  localhost" >> /etc/hosts
 echo "::1        localhost" >> /etc/hosts                   
