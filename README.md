@@ -408,6 +408,18 @@ Don't forget to regenerate the initramfs:
 ```
 sudo mkinitcpio -p linux
 ```
+### KDE Applications
+
+Packages | Description
+--------- | ----------
+plasma | KDE Plasma Desktop Environment.
+konsole | KDE Terminal.
+dolphin | KDE File Manager.
+ark | Archiving Tool.
+kate | Text Editor.
+kcalc | Scientific Calculator.
+spectacle | KDE screenshot capture utility.
+partitionmanager | KDE Disk & Partion Manager.
 ### Display manager
 A display manager is a graphical user interface which is displayed after the boot process. The `plasma-meta` package will provide a minimal installation: 
 ```
