@@ -377,13 +377,20 @@ Before installing any other packages, update the system:
 ```
 sudo pacman -Syu
 ```
- /etc/pacman.d/mirrorlist
-
 
 ### Xorg & GPU Drivers
 A display server is needed to process and manage the GUI. Install the `xorg` package and the Xorg display drivers:
 ```
 sudo pacman -S xorg xf86-video-your gpu type]
+```
+### Enable Multilib Repository
+Multilib includes 32-bit software and library applications. (e.g. Steam).
+
+Edit `etc/pacman.conf` and uncomment these lines to enable the `Mulilib` repo:
+
+```
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
 ```
 ### MESA Libraries (32 Bit Support)
 Optionally, to enable 32 bit application support install the `lib32-mesa` and `lib32-vulkan-radeon` packages:
