@@ -480,24 +480,16 @@ spotify| Proprietary music streaming service.
 git | Github command-line utility tools.
 neofetch | Neofetch is a command-line system information tool.
 
+### Extras (Optional)
 
-### Web browser
-Obviously a modern system will want a web browser to navigate the web, so let's install `firefox`. You may choose another browser of your choice.
-```
-sudo pacman -S firefox
-```
 ### Install AUR Helper
-Install git:
-```
-sudo pacman -S git
-```
-Git clone yay and build the package:
+Yet Another Yogurt - An AUR Helper
+Install `yay`:
 ```
 git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
 ```
-# Avahi
 
 ### Firewall
 Arch Linux does not have any ports open by default. However, it is recommended to install a suitable Firewall for better security:
@@ -531,12 +523,6 @@ To improve system performance enable `paccache.timer` which will clear the packa
 sudo pacman -S pacman-contrib
 sudo systemctl enable paccache.timer
 ```
-
-### Set Keyboard Layout
-```
-sudo localectl set-x11-keymap gb
-```
-
 ## Audio
 By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
 Install and enable PipeWire:
