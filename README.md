@@ -456,14 +456,30 @@ partitionmanager | KDE Disk & Partion Manager.
 sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
 ```
 ### Audio Utilities & Bluetooth
+To configure audio and enable Bluetooth:
 ```
 sudo pacman -S alsa-utils bluez bluez-utils
 ```
 Packages | Description
 --------- | ----------
-alsa-utils | This contains (among other utilities) the `alsamixer` and `amixer` utilities.
+alsa-utils | This includes (among other utilities) the `alsamixer` and `amixer` utilities.
 bluez | Provides the Bluetooth protocol stack.
 bluez-utils | Provides the `bluetoothctl` utility.
+
+### Personal Applications
+This is a list of independent applications that I personally use on my system:
+```
+sudo pacman -S firefox steam mpv spotify git neofetch
+```
+Packages | Description
+--------- | ----------
+firefox | Mozilla Firefox Web Browser.
+steam| A digital video game distribution service.
+mpv | Video player
+spotify| Proprietary music streaming service. 
+git | Github command-line utility tools.
+neofetch | Neofetch is a command-line system information tool.
+
 
 ### Web browser
 Obviously a modern system will want a web browser to navigate the web, so let's install `firefox`. You may choose another browser of your choice.
