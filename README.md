@@ -232,7 +232,7 @@ cat /mnt/etc/fstab
 ```
 If the fstab file does not contain the entries, regenerate the file.
 
-### Chroot
+## Chroot
 
 Chroot into the system:
 ```
@@ -291,7 +291,6 @@ passwd
 A bootloader needs to be installed for system initialisation. For this configuration systemd-boot will be the default option:
 ```
 bootctl install
-pacman -S efibootmgr
 ```
 Create and configure `/boot/loader/loader.conf`:
 
