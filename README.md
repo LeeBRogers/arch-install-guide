@@ -307,16 +307,23 @@ timeout  4
 console-mode max
 editor   no
 ```
-Create a loader configuration file:
+Create a loader configuration file `/boot/loader/entries/arch-fallback.conf`:
 
 ```
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
-options root=UUID="UUID" quiet splash rw
+options root=UUID=[UUID] quiet splash rw
 ```
-Additionally, install a secondary backup kernel and create the configuration file like the example above. E.g for LTS kernel, `/boot/loader/entries/arch-lts.conf` and `/boot/loader/entries/arch-lts-fallback.conf`. 
+```
+title   Arch Linux (fallback initramfs)
+linux   /vmlinuz-linux
+initrd  /amd-ucode
+initrd  /initramfs-linux-fallback.img
+options root="UUID=[UUID] rw
+```
+Additionally, install a secondary backup kernel and create the configuration file like the example above. ( e.g. for LTS kernel, `/boot/loader/entries/arch-lts.conf` and `/boot/loader/entries/arch-lts-fallback.conf`. 
 
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
