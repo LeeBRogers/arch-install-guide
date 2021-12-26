@@ -538,7 +538,7 @@ To improve system performance enable `paccache.timer` which will clear the packa
 sudo pacman -S pacman-contrib
 sudo systemctl enable paccache.timer
 ```
-## Audio
+## PipeWire
 By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
 Install and enable PipeWire:
 ```
