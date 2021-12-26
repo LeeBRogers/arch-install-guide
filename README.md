@@ -340,7 +340,7 @@ reboot
 
 ### Login as ROOT
 
-### Users
+### Add User
 Create a user and append `username` with your name:
 ```
 useradd -m -G wheel -s /bin/bash username
