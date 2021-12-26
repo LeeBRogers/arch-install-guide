@@ -349,7 +349,6 @@ Set the user password:
 ```
 passwd username
 ```
-### Post Install Configuration
 Ensure you are connected to the internet before doing these steps.
 
 ### Sudoers
