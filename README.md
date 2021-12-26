@@ -488,7 +488,7 @@ spotify| Proprietary music streaming service.
 git | Github command-line utility tools.
 neofetch | Neofetch is a command-line system information tool.
 
-### Extras (Optional)
+## Extras
 
 ### Install AUR Helper
 Yet Another Yogurt - An AUR Helper
@@ -615,7 +615,7 @@ options iwlmvm power_scheme=1
 
 ### Optional
 
-These are just a collection of optional tweaaks that the majority of users may not need or use.
+These are just a collection of optional tweaks that the majority of users may not need or use.
 
 ### Install Missing Firmware
 Although the missing firmware is not needed in most cases, you can install them to remove the warning messages when regenerating the `initramfs`:
