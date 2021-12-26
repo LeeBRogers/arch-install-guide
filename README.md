@@ -18,7 +18,7 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [CPU Microcode](#install-cpu-microcode)
     * [Network Manager](#install-network-manager)
   * [Post Installation](#post-installation)
-    * [Add user](#add-user)
+    * [Add user](#users)
     * [Sudo Command](#sudoers)
   * [User Login](#login-as-user)
     
