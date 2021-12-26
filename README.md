@@ -307,7 +307,7 @@ timeout  4
 console-mode max
 editor   no
 ```
-Create a loader configuration file `/boot/loader/entries/arch-fallback.conf`:
+Create a loader configuration file `/boot/loader/entries/arch.conf`:
 
 ```
 title   Arch Linux
@@ -316,6 +316,7 @@ initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=UUID=[UUID] quiet splash rw
 ```
+Create and configure the fallback `/boot/loader/entries/arch-fallback.conf`
 ```
 title   Arch Linux (fallback initramfs)
 linux   /vmlinuz-linux
