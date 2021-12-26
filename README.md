@@ -214,10 +214,10 @@ You may want to install additional needed packages not included within the base 
 
 **Note: While base-devel is not included within the default pacstrap command on the wiki, many packages will not work without it so we will include it.**
 
-## Configuring the system
+### Configuring the system
 Now the base system needs to configured as follows:
 
-### Fstab:
+#### Fstab:
 Generate the fstab file which will be used to mount the filesystems:
 ```
 genfstab -U /mnt >> /mnt/etc/fstab
