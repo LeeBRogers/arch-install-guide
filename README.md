@@ -8,6 +8,9 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
 + Xorg
 + KDE Plasma
 
+**Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
+
+
 ## Table of Contents
   * [**Pre Installation**](#Pre-installation)
   * [**Disk Partitioning**](#preparing-the-disk-for-system)
@@ -19,7 +22,6 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
     * [Date & Time](#set-time--date)
     * [Localisation](#localisation)
     * [Network Configuration](#network-configuration)
-**Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
 ## Pre installation
 Before installation, make sure to:
