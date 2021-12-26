@@ -21,7 +21,8 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [Add user](#users)
     * [Sudo Command](#sudoers)
   * [User Login](#login-as-user)
-    * [Xorg & GPU Drivers](#xorg--gpu-drivers)
+    * [Display Server & GPU Drivers](#xorg--gpu-drivers)
+    * [Multilib Repository](#enable-multilib-repository)
     
 ## Pre installation
 Before installation, make sure to:
@@ -431,8 +432,14 @@ Don't forget to regenerate the initramfs:
 ```
 sudo mkinitcpio -p linux
 ```
-
+### Display Manager (SDDM)
+Install and enable SDDM:
+```
+sudo pacman -S sddm
+systemctl enable sddm.service
+```
 ### KDE Applications
+These are the core applications that I will install for my setup:
 
 Packages | Description
 --------- | ----------
@@ -444,25 +451,9 @@ kate | Text Editor.
 kcalc | Scientific Calculator.
 spectacle | KDE screenshot capture utility.
 partitionmanager | KDE Disk & Partion Manager.
-### Display manager
-A display manager is a graphical user interface which is displayed after the boot process. The `plasma-meta` package will provide a minimal installation: 
+
 ```
-sudo pacman -S plasma-meta
-```
-### Login Manager
-A login manager is needed to log into the desktop enviroment. However, `sddm` is a dependency of the `plasma-meta` package, so installing it is not required. Simply enable the service:
-```
-sudo systemctl enable sddm.service
-```
-### File Manager
-A file manager is a piece of software to manage and order folders and data on the system. Since I am using KDE Plasma, the `dolphin` file manager will be installed:
-```
-sudo pacman -S dolphin
-```
-### Terminal emulator
-A Linux system isn't fully functional without a terminal emulator. The default terminal emulator used by KDE Plasma is `konsole`, which we will install:
-```
-sudo pacman -S konsole
+sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
 ```
 ### Web browser
 Obviously a modern system will want a web browser to navigate the web, so let's install `firefox`. You may choose another browser of your choice.
