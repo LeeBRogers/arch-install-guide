@@ -316,7 +316,7 @@ initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=UUID=[UUID] quiet splash rw
 ```
-Create and configure the fallback `/boot/loader/entries/arch-fallback.conf`
+Create and configure the fallback file `/boot/loader/entries/arch-fallback.conf`:
 ```
 title   Arch Linux (fallback initramfs)
 linux   /vmlinuz-linux
