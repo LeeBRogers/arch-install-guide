@@ -232,7 +232,7 @@ cat /mnt/etc/fstab
 ```
 If the fstab file does not contain the entries, regenerate the file.
 
-## Chroot
+### Chroot
 
 Chroot into the system:
 ```
