@@ -399,8 +399,8 @@ sudo pacman -S lib32-libva-mesa-driver
 sudo pacman -S mesa-vdpau
 sudo pacman -S lib32-mesa-vdpau
 ```
-### Early Loading of video driver
-Edit `/etc/mkinitcpio.conf` and add `amdgpu` to the kernel MODULES:
+### Early KMS Loading
+To load the GPU driver modules early, edit `/etc/mkinitcpio.conf` and add `amdgpu` to the kernel MODULES:
 ```
 sudo nano /etc/mkinitcpio.conf
 ```
