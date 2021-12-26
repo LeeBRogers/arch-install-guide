@@ -14,8 +14,8 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
     * [UEFI System](#Partitioning)
   * [**Base System Installation**](#base-system-installation)
     * [Base System](#install-base-system)
-    * [Generate FSTAB](#fstab)
-    * 
+    * [Generate Fstab](#fstab)
+  * [**Chroot**](#chroot)
 **Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
 ## Pre installation
