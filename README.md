@@ -547,7 +547,7 @@ sudo pacman -S pipewire-pulse
 
 Let's make some system tweaks for better optimisation.
 
-#### Update Mirrorlist
+### Update Mirrorlist
 The mirrorlist should be configured for faster download speeds.
 
 Install `reflector`:
@@ -593,7 +593,7 @@ Depends = reflector
 Exec = /bin/sh -c 'systemctl start reflector.service; [ -f /etc/pacman.d/mirrorlist.pacnew ] && rm /etc/pacman.d/mirrorlist.pacnew'
 ```
 
-#### Tear Free & Free Sync
+### Tear Free & Free Sync
 TearFree and Free Sync will prevent screen tearing and flicker. Create the file `/etc/X11/xorg.conf.d/20-amdgpu.conf` and insert the following:
 ```
 sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf
@@ -606,7 +606,7 @@ Section "Device"
      Option "VariableRefresh" "true"
 EndSection
 ```
-#### Power Saving
+### Power Saving
 Power saving features can be disabled to improve network latency issues. Since I use an `Intel AX200` chipset on desktop, I will create the file `/etc/modprobe.d/iwlmvm.conf` and disable power saving state:
 
 ```
