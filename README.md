@@ -439,7 +439,7 @@ sudo pacman -S sddm
 systemctl enable sddm.service
 ```
 ### KDE Applications
-These are the core applications that I will install for my setup:
+These are the core KDE applications that I will install for my setup:
 
 Packages | Description
 --------- | ----------
@@ -455,6 +455,16 @@ partitionmanager | KDE Disk & Partion Manager.
 ```
 sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
 ```
+### Audio Utilities & Bluetooth
+```
+sudo pacman -S alsa-utils bluez bluez-utils
+```
+Packages | Description
+--------- | ----------
+alsa-utils | This contains (among other utilities) the `alsamixer` and `amixer` utilities.
+bluez | Provides the Bluetooth protocol stack.
+bluez-utils | Provides the `bluetoothctl` utility.
+
 ### Web browser
 Obviously a modern system will want a web browser to navigate the web, so let's install `firefox`. You may choose another browser of your choice.
 ```
