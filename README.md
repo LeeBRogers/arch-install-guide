@@ -156,7 +156,7 @@ Create `root` partition:
 + Navigate to <kbd>Write</kbd>, type `YES` and hit <kbd>Enter</kbd>
 + Navigate to <kbd>Quit></kbd> and type `YES` and hit <kbd>Enter</kbd> to write changes.
 
-# Formatting
+### Formatting
 After creating the partitions they need to be formatted with suitable filesystems:
   
 Format `/dev/sda1` as `FAT32`. This will be the `boot` partition.
