@@ -23,6 +23,9 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
   * [User Login](#login-as-user)
     * [Display Server & GPU Drivers](#xorg--gpu-drivers)
     * [Multilib Repository](#enable-multilib-repository)
+    * [Audio & Bluetooth] (#audio-utilities--bluetooth)
+    * [Personal Applications](#personal-applications)
+  * [Extras](#extras)
     
 ## Pre installation
 Before installation, make sure to:
@@ -531,7 +534,7 @@ To improve system performance enable `paccache.timer` which will clear the packa
 sudo pacman -S pacman-contrib
 sudo systemctl enable paccache.timer
 ```
-## PipeWire
+## Audio
 By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
 Install and enable PipeWire:
 ```
