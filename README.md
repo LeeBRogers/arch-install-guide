@@ -348,7 +348,7 @@ exit
 umount -a
 reboot
 ```
-# Post Installation
+## Post Installation
 
 ### Users
 Create a user and append `username` with your name:
@@ -359,7 +359,7 @@ Set the user password:
 ```
 passwd username
 ```
-## Post Install Configuration
+### Post Install Configuration
 Ensure you are connected to the internet before doing these steps.
 
 ### Sudoers
@@ -367,7 +367,7 @@ Edit the sudoers file and uncomment this line:
 ```
 EDITOR=nano visudo
 ```
-## Uncomment to allow members of group wheel to execute any command
+#### Uncomment to allow members of group wheel to execute any command
 %wheel ALL=(ALL) ALL
 
 ### Multilib
