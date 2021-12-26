@@ -13,9 +13,8 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
   * [**Disk Partitioning**](#preparing-the-disk-for-system)
     * [UEFI System](#Partitioning)
   * [**Base System Installation**](#base-system-installation)
-    * [Update Mirrors](#update-mirrors-using-reflector)
-    * [Base System](https://github.com/XxAcielxX/arch-plasma-install#install-base-system)
-    * [Generate fstab](#generate-fstab)
+    * [Base System](#install-base-system)
+    * [Generate fstab](#fstab)
 **Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
 ## Pre installation
