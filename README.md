@@ -381,15 +381,17 @@ sudo pacman -Syu
 
 
 ### Xorg & GPU Drivers
-A display server is needed to process and manage the GUI. Xorg will be the default choice in this configuration. Install the `xorg` package and Xorg driver package:
+A display server is needed to process and manage the GUI. Install the `xorg` package and the Xorg display drivers:
 ```
 sudo pacman -S xorg xf86-video-your gpu type]
 ```
+### MESA Libraries (32 Bit Support)
 Optionally, to enable 32 bit application support install the `lib32-mesa` and `lib32-vulkan-radeon` packages:
 ```
 sudo pacman -S lib32-mesa
 sudo pacman -S lib32-vulkan-radeon
 ```
+### Hardware Video Acceleration
 To enable hardware acceleration install `libva-mesa-driver`,  `lib32-libva-mesa-driver` for VA-API and `mesa-vdpau` and `lib32-mesa-vdpau` for VDPAU:
 ```
 sudo pacman -S libva-mesa-driver
@@ -397,6 +399,7 @@ sudo pacman -S lib32-libva-mesa-driver
 sudo pacman -S mesa-vdpau
 sudo pacman -S lib32-mesa-vdpau
 ```
+### Early Loading of video driver
 Edit `/etc/mkinitcpio.conf` and add `amdgpu` to the kernel MODULES:
 ```
 sudo nano /etc/mkinitcpio.conf
@@ -412,6 +415,7 @@ Don't forget to regenerate the initramfs:
 ```
 sudo mkinitcpio -p linux
 ```
+
 ### KDE Applications
 
 Packages | Description
