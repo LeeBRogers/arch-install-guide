@@ -415,7 +415,7 @@ Optionally, to enable 32 bit application support install the `lib32-mesa` packag
 sudo pacman -S lib32-mesa
 ```
 ### Vulkan API
-Vulkan is a graphics API backend uses by some games. For applications to utilise this API, install the `vulkan-radeon` package:
+Vulkan is a graphics API backend uses by games and video applications. For applications to utilise this API, install the `vulkan-radeon` package:
 ```
 sudo pacman -S vulkan-radeon
 ```
