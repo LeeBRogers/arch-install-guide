@@ -393,10 +393,18 @@ Edit `etc/pacman.conf` and uncomment these lines to enable the `Mulilib` repo:
 #Include = /etc/pacman.d/mirrorlist
 ```
 ### MESA Libraries (32 Bit Support)
-Optionally, to enable 32 bit application support install the `lib32-mesa` and `lib32-vulkan-radeon` packages:
+Optionally, to enable 32 bit application support install the `lib32-mesa` package:
 ```
 sudo pacman -S lib32-mesa
-sudo pacman -S lib32-vulkan-radeon
+```
+### Vulkan API
+Vulkan is a graphics API backend uses by some games. For applications to utilise this API, install the `vulkan-radeon` package:
+```
+sudo pacman -S vulkan-radeon
+```
+Optionally, install `lib32-vulkan-radeon` for 32-bit application support:
+```
+sudo pacman -S `lib32-vulkan-radeon`
 ```
 ### Hardware Video Acceleration
 To enable hardware acceleration install `libva-mesa-driver`,  `lib32-libva-mesa-driver` for VA-API and `mesa-vdpau` and `lib32-mesa-vdpau` for VDPAU:
