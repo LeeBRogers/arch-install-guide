@@ -17,6 +17,7 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
     * [Generate Fstab](#fstab)
   * [**Chroot**](#chroot)
     * [Date & Time](#set-time--date)
+    * [Localisation](#localisation)
 **Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
 
 ## Pre installation
@@ -253,7 +254,7 @@ hwclock --systohc
 ```
 This will generate `/etc/adjtime`.
 
-### Localisation
+## Localisation
 
 Edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF-8` and any other needed locales. e.g `en_GB.UTF-8 UTF-8`.
 
