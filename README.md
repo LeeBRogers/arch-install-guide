@@ -433,8 +433,8 @@ sudo pacman -S lib32-mesa-vdpau
 ```
 ### Early KMS Loading
 To load the GPU driver modules early, edit `/etc/mkinitcpio.conf` and add `[your-driver-module]` to the kernel MODULES:
-+ For AMD add `amdgpu` for AMD
-+ For NVIDIA add `nvidia`, nvidia_modeset`, `nvidia_uvm` and `nvidia_drm`.
++ For AMD add `amdgpu` for AMD.
++ For NVIDIA add `nvidia`, 'nvidia_modeset`, `nvidia_uvm` and `nvidia_drm`.
 + For legacy AMD Radeon, add `radeon`.
 + For Intel iGPU, add `i915`.
 ```
