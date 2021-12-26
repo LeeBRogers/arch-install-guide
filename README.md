@@ -496,6 +496,9 @@ neofetch | Neofetch is a command-line system information tool.
 
 ### Install AUR Helper
 Yet Another Yogurt - An AUR Helper
+
+Yay is a pacman wrapper for managing, installing and updating packages.
+
 Install `yay`:
 ```
 git clone https://aur.archlinux.org/yay.git
