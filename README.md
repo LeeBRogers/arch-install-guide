@@ -421,7 +421,7 @@ sudo pacman -S vulkan-radeon
 ```
 Optionally, install `lib32-vulkan-radeon` for 32-bit application support:
 ```
-sudo pacman -S `lib32-vulkan-radeon`
+sudo pacman -S lib32-vulkan-radeon
 ```
 ### Hardware Video Acceleration
 To enable hardware acceleration install `libva-mesa-driver`,  `lib32-libva-mesa-driver` for VA-API and `mesa-vdpau` and `lib32-mesa-vdpau` for VDPAU:
