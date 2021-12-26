@@ -311,8 +311,6 @@ options root=UUID="UUID" quiet splash rw
 ```
 Additionally, install a secondary backup kernel and create the configuration file like the example above. E.g for LTS kernel, `/boot/loader/entries/arch-lts.conf` and `/boot/loader/entries/arch-lts-fallback.conf`. 
 
-Rename `/vmlinuz-linux` to `/vmlinuz-linux-lts` and `/initramfs-linux.img` to `initramfs-linux-lts.img`.
-
 ### Install CPU Microcode
 Microcode provides stability and security updates for the CPU. They should be installed for optimal operation. 
 #### For AMD CPUs:
@@ -340,6 +338,8 @@ reboot
 ```
 ## Post Installation
 
+### Login as ROOT
+
 ### Users
 Create a user and append `username` with your name:
 ```
@@ -360,6 +360,12 @@ Uncomment the `wheel` group to allow members of group wheel to execute any comma
 ```
 %wheel ALL=(ALL) ALL
 ```
+## Logout ROOT
+
+```
+exit
+```
+## Login as USER
 ### Multilib
 
 Multilib support can be enabled by editing `/etc/pacman.conf` and uncommenting this line:
