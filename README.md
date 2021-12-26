@@ -22,7 +22,10 @@ The purpose of this guide is to install and configure Arch Linux on a `UEFI` sys
     * [Date & Time](#set-time--date)
     * [Localisation](#localisation)
     * [Network Configuration](#network-configuration)
-
+    * [ROOT Password](#set-root-password)
+    * [Bootloader](#install-bootloader)
+    * [CPU Microcode](#install-cpu-microcode)
+    * [Network Manager](#install-network-manager)
 ## Pre installation
 Before installation, make sure to:
 + Read the [official wiki](https://wiki.archlinux.org/title/installation_guide).
@@ -288,7 +291,7 @@ echo "::1        localhost" >> /etc/hosts
 echo "127.0.1.1  localhost.localdomain   arch" >> /etc/hosts
 ```
 **Note: Append `arch` with the hostname you have set.**
-### Root password
+### Set Root password
 Set the root user password:
 ```
 passwd
@@ -330,7 +333,7 @@ pacman -S amd-ucode
 ```
 pacman -S intel-ucode
 ```
-### Network Manager
+### Install Network Manager
 A network manager is used to connect to a network interface and manage settings. NetworkManager will be used for this configuration:
 ```
 pacman -S networkmanager
