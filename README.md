@@ -1,17 +1,8 @@
 # Arch Linux Installation Guide
 
 ## Introduction
-The purpose of this guide is to install and configure Arch Linux on a `UEFI` system. It will be setup with the following parameters:
-+ UEFI
-+ systemd-boot
-+ NetworkManager
-+ Xorg
-+ KDE Plasma
+The purpose of this guide is to install and configure Arch Linux with KDE Plasma desktop enviroment. We will go through how I set up my system from beginning to end.
 
-**Note:** This is not intended to be a universal guide so installation procedures and configuration may differ based on individual setup.
-
-
-## Table of Contents
   * [**Pre Installation**](#Pre-installation)
   * [**Disk Partitioning**](#preparing-the-disk-for-system)
     * [UEFI System](#Partitioning)
