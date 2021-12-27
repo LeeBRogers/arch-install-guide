@@ -636,7 +636,7 @@ Section "Device"
 EndSection
 ```
 
-### Optional
+## Optional
 
 These are just a collection of optional tweaks that the majority of users may not need or use.
 
