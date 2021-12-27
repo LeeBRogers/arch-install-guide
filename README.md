@@ -497,6 +497,7 @@ steam| A digital video game distribution service.
 mpv | Video player
 spotify| Proprietary music streaming service. 
 git | Github command-line utility tools.
+timeshift | System restore/snapshot utility 
 neofetch | Neofetch is a command-line system information tool.
 
 ## Extras
