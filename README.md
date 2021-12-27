@@ -500,6 +500,9 @@ git | Github command-line utility tools.
 timeshift | System restore/snapshot utility 
 neofetch | Neofetch is a command-line system information tool.
 
+## Final Thoughts
+
+
 ## Extras
 
 ### Install AUR Helper
@@ -672,5 +675,6 @@ Finally, edit `/etc/sddm.conf` to point to the script we set up above:
 # A script to execute when starting the display server
 DisplayCommand=/usr/share/sddm/scripts/Xsetup
 ```
+
 
 
