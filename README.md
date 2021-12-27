@@ -502,6 +502,7 @@ neofetch | Neofetch is a command-line system information tool.
 
 ## Final Thoughts
 
+Everything required has now been installed and the system should now be ready to use. Below are some optional extra applications and tweaks that you can make to enhance user experience and performance.  
 
 ## Extras
 
