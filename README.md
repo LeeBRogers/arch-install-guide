@@ -468,6 +468,8 @@ git | Github command-line utility tools.
 timeshift | System restore/snapshot utility.
 neofetch | Neofetch is a command-line system information tool.
 keepassxc | Community driven password manager.
+corectrl | Hardware monitor & control utility.
+solaar | Logitech peripheral device manager.
 ## Final Thoughts
 
 Everything required has now been installed and the system should now be ready to use. Below are some optional extra applications and tweaks that you can make to enhance user experience and performance.  
