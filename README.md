@@ -552,17 +552,6 @@ To improve system performance enable `paccache.timer` which will clear the packa
 sudo pacman -S pacman-contrib
 sudo systemctl enable paccache.timer
 ```
-## PipeWire
-By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
-Install and enable PipeWire:
-```
-sudo pacman -S pipewire
-sudo pacman -S pipewire-pulse
-```
-## Tweaks
-
-Let's make some system tweaks for better optimisation.
-
 ### Update Mirrorlist
 The mirrorlist should be configured for faster download speeds.
 
@@ -608,6 +597,16 @@ When = PostTransaction
 Depends = reflector
 Exec = /bin/sh -c 'systemctl start reflector.service; [ -f /etc/pacman.d/mirrorlist.pacnew ] && rm /etc/pacman.d/mirrorlist.pacnew'
 ```
+## PipeWire
+By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
+Install and enable PipeWire:
+```
+sudo pacman -S pipewire
+sudo pacman -S pipewire-pulse
+```
+## Tweaks
+
+Let's make some system tweaks for better optimisation.
 
 ### Tear Free & Free Sync
 TearFree and Free Sync will prevent screen tearing and flicker. Create the file `/etc/X11/xorg.conf.d/20-amdgpu.conf` and insert the following:
