@@ -26,10 +26,15 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [Display Manager (SDDM)](#display-manager---sddm)
     * [Audio & Bluetooth](#audio-utilities--bluetooth)
     * [Personal Applications](#personal-applications)
-  * [Extras](#extras)
     * [Final Thoughts](#final-thoughts)
-    * [Maintenance & Performance](#maintenance--performance-tuning)
-    * [Tweaks](#tweaks)
+  * [Extras](#extras)
+    * [AUR Helper](#install-aur-helper)
+    * [PipeWire](#pipewire)
+    * [Security](#firewall)
+  * [Maintenance & Performance](#maintenance--performance-tuning)
+    * [SSD Trim](#ssd-trim)
+    * [Package Cache](#package-cache-hook)
+  * [Tweaks](#tweaks)
     
 ## Pre installation
 Before installation, make sure to:
