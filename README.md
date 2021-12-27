@@ -520,7 +520,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
 ```
-## PipeWire
+# PipeWire
 By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
 Install and enable PipeWire:
 ```
