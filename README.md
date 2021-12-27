@@ -66,33 +66,15 @@ Synchronise the system clock:
 ```
 timedatectl set-ntp true
 ```
-### Network Connection
+### Check Network Connection
+Check the internet connection is working by issuing a ping command to a website:
+```
+ping archlinux.org
+```
++ If you use a wired connection, connectivity should work out of the box.
++ If you use a wireless connection, use `iwctl` to connect to your network.
++ Proceed to the next step when an internet connection is established.
 
-#### Ethernet
-Check the network interface is up:
-```
-ip link
-```
-The output should look similar to this:
-```
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: enp6s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
-    link/ether 04:42:1a:ea:94:03 brd ff:ff:ff:ff:ff:ff
-3: wlp5s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
-    link/ether f4:b3:01:69:fe:92 brd ff:ff:ff:ff:ff:ff
-```
-If the interface is DOWN, you should enable it:
-
-```
-ip link set enp6s0 up
-```
-OR
-```
-ip link set wlp5s0 up
-```
-+ `enp6s0` = wired interface
-+ `wlp5s0` = wireless interface
 #### Wi Fi
 Connect to Wi Fi interface using iwctl:
 ```
@@ -109,10 +91,7 @@ ping archlinux.org
 The ping should output a response if connected:
 ```
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=49 time=54.1 ms
-64 bytes from archlinux.org (95.217.163.246): icmp_seq=3 ttl=49 time=50.1 ms
-64 bytes from archlinux.org (95.217.163.246): icmp_seq=4 ttl=49 time=50.0 ms
 ```
-
  
 # Partitioning
 We need to partition the disk with a suitable layout depending on how we want to configure the system. 
