@@ -607,7 +607,7 @@ Depends = reflector
 Exec = /bin/sh -c 'systemctl start reflector.service; [ -f /etc/pacman.d/mirrorlist.pacnew ] && rm /etc/pacman.d/mirrorlist.pacnew'
 ```
 ### Power Saving
-Power saving features can be disabled to improve network latency issues. Since I use an `Intel AX200` chipset on desktop, I will create the file `/etc/modprobe.d/iwlmvm.conf` and disable power saving state:
+Power saving features can be disabled to improve network latency. Since I use an `Intel AX200` chipset on desktop, I will create the file `/etc/modprobe.d/iwlmvm.conf` and disable power saving state:
 
 ```
 sudo touch /etc/modprobe.d/iwlmvm.conf
