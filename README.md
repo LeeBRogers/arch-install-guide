@@ -27,7 +27,9 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [Audio & Bluetooth](#audio-utilities--bluetooth)
     * [Personal Applications](#personal-applications)
   * [Extras](#extras)
+    * [Final Thoughts](#final-thoughts)
     * [Maintenance & Performance](#maintenance--performance-tuning)
+    * [Tweaks](#tweaks)
     
 ## Pre installation
 Before installation, make sure to:
