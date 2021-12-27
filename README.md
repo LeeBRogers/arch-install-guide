@@ -681,5 +681,5 @@ Finally, edit `/etc/sddm.conf` to point to the script we set up above:
 DisplayCommand=/usr/share/sddm/scripts/Xsetup
 ```
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
