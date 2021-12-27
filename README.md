@@ -500,7 +500,7 @@ bluez-utils | Provides the `bluetoothctl` utility.
 ### Personal Applications
 This is a list of independent applications that I personally use on my system:
 ```
-sudo pacman -S firefox steam mpv spotify git neofetch
+yay -S firefox steam mpv spotify git timeshift neofetch
 ```
 Packages | Description
 --------- | ----------
