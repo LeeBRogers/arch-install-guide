@@ -102,7 +102,7 @@ Recommended partition scheme:
 
 ### Create partitions:
 
-Substitute `/dev/**sdX**` with the device name of your drive. (e.g. `/dev/sda`, `/dev/nvme0n1` and `/dev/mmcblk0`. Find yours by running `lsblk`.
+Substitute `/dev/sdX` with the device name of your drive. (e.g. `/dev/sda`, `/dev/nvme0n1` or `/dev/mmcblk0`. Find yours by running `lsblk`.
 
 Wipe the disk before creating the partitions using `gdisk`:
 ```
