@@ -102,11 +102,11 @@ Recommended partition scheme:
 
 ### Create partitions:
 
-Substitute `/dev/sdX` with the device name of your drive. (e.g. `/dev/sda`, `/dev/nvme0n1` or `/dev/mmcblk0`. Find yours by running `lsblk`.
+Substitute `/dev/[device name]` with the device name of your drive. (e.g. `/dev/sda`, `/dev/nvme0n1` or `/dev/mmcblk0`. Find yours by running `lsblk`.
 
 Wipe the disk before creating the partitions using `gdisk`:
 ```
-gdisk /dev/sdX
+gdisk /dev/[device name]
 ```
 + Press <kbd>x</kbd> to enter expert mode.
 + Press <kbd>z</kbd> to wipe the disk.
@@ -114,7 +114,7 @@ gdisk /dev/sdX
 
 Then create the partitions with `cgdisk`:
 ```
-cgdisk /dev/sdX
+cgdisk /dev/[device name]
 ```
 Create `boot` partition:
 + Navigate to <kbd>New</kbd> and hit <kbd>Enter</kbd>
@@ -144,33 +144,33 @@ Create `root` partition:
 ### Formatting
 After creating the partitions they need to be formatted with suitable filesystems:
   
-Format `/dev/sdX1` as `FAT32`. This will be the `boot` partition.
+Format `/dev/[efi partition name]` as `FAT32`. This will be the `boot` partition.
 ```
 mkfs.fat -F 32 /dev/sda1 
 ```
 Create the `swap` and enable it:
 ```
-mkswap /dev/sdX2 
-swapon /dev/sdX2
+mkswap /dev/[swap partition name]
+swapon /dev/[swap partition name]
 ```
 Format `/dev/sdX3` as `EXT4`. This will be the `root` partition.
 ```
-mkfs.ext4 /dev/sdX3
+mkfs.ext4 /dev/[root partition name]
 ```
 ### Mounting the file systems
 Create and mount the partitions to their respective directories.
 
-Mount `/dev/sdX3` to `mnt`. This will be `/`.
+Mount `/dev/[root partition name]` to `mnt`. This will be `/`.
 ```
-mount /dev/sdX3 /mnt
+mount /dev/[root partition name] /mnt
 ```
 Create a `/boot` mountpoint:
 ```
 mkdir /mnt/boot
 ```
-Mount `/dev/sdX1` to `/mnt/boot`. This will be `/boot`.
+Mount `/dev/[efi partition name]` to `/mnt/boot`. This will be `/boot`.
 ```
-mount /dev/sdX1 /mnt/boot
+mount /dev/[efi partition name] /mnt/boot
 ```
 The `swap` partition does not need to be mounted since it is enabled.
 
