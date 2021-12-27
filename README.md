@@ -650,11 +650,6 @@ Section "Device"
      Option "VariableRefresh" "true"
 EndSection
 ```
-
-## Optional
-
-These are just a collection of optional tweaks that the majority of users may not need or use.
-
 ### Disable Secondary Login Screen
 If using multiple monitors, the secondary display can be disabled for aesthetics.
 
