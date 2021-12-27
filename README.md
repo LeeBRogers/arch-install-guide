@@ -71,6 +71,10 @@ Check the internet connection is working by issuing a ping command to a website:
 ```
 ping archlinux.org
 ```
+The ping should output a response if connected:
+```
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=49 time=54.1 ms
+```
 + If you use a wired connection, connectivity should work out of the box.
 + If you use a wireless connection, use `iwctl` to connect to your network.
 + Proceed to the next step when an internet connection is established.
@@ -83,14 +87,6 @@ device list
 station wlan0 scan
 station wlan0 get-networks
 station wlan0 connect SSID
-```
-#### Testing Network Connection:
-```
-ping archlinux.org
-```
-The ping should output a response if connected:
-```
-64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=49 time=54.1 ms
 ```
  
 # Partitioning
