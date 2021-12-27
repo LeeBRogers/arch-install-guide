@@ -153,7 +153,7 @@ Create the `swap` and enable it:
 mkswap /dev/[swap partition name]
 swapon /dev/[swap partition name]
 ```
-Format `/dev/sdX3` as `EXT4`. This will be the `root` partition.
+Format `/dev/[root partition name]` as `EXT4`. This will be the `root` partition.
 ```
 mkfs.ext4 /dev/[root partition name]
 ```
