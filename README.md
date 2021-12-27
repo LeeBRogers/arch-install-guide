@@ -146,7 +146,7 @@ After creating the partitions they need to be formatted with suitable filesystem
   
 Format `/dev/[efi partition name]` as `FAT32`. This will be the `boot` partition.
 ```
-mkfs.fat -F 32 /dev/sda1 
+mkfs.fat -F 32 /dev/[efi partition name]
 ```
 Create the `swap` and enable it:
 ```
