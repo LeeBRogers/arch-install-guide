@@ -520,6 +520,13 @@ git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
 ```
+## PipeWire
+By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
+Install and enable PipeWire:
+```
+sudo pacman -S pipewire
+sudo pacman -S pipewire-pulse
+```
 ## Security
 ### Firewall
 Arch Linux does not have any ports open by default. However, it is recommended to install a suitable Firewall for better security:
@@ -611,13 +618,6 @@ options iwlmvm power_scheme=1
 ```
 **Note: Laptop users will want to keep the power saving features enabled to preserve battery.**
 
-## PipeWire
-By default Arch uses PulseAudio as an audio server. Pipewire is newer and provides better functionality. 
-Install and enable PipeWire:
-```
-sudo pacman -S pipewire
-sudo pacman -S pipewire-pulse
-```
 ## Tweaks
 
 Let's make some system tweaks for better optimisation.
