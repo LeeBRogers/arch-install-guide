@@ -517,7 +517,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
 ```
-
+## Security
 ### Firewall
 Arch Linux does not have any ports open by default. However, it is recommended to install a suitable Firewall for better security:
 ```
@@ -535,6 +535,7 @@ Enable the service:
 sudo ufw enable
 sudo systemctl enable ufw.service
 ```
+## Maintenance & Performance Tuning
 
 ### SSD TRIM
 If you use an SSD, you can enable periodic TRIM to optimise drive performance and longevity:
