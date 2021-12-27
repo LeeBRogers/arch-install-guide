@@ -34,7 +34,11 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
   * [Maintenance & Performance](#maintenance--performance-tuning)
     * [SSD Trim](#ssd-trim)
     * [Package Cache](#package-cache-hook)
+    * [Mirrorlist](#update-mirrorlist)
+    * [Power Saving](#power-saving)
   * [Tweaks](#tweaks)
+    * [Tear Free & Free Sync](#tear-free--free-sync)
+    * [Login Screen](#disable-secondary-login-screen)
     
 ## Pre installation
 Before installation, make sure to:
