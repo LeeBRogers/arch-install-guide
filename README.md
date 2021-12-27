@@ -102,9 +102,11 @@ Recommended partition scheme:
 
 ### Create partitions:
 
+Substitute `/dev/**sdX**` with the device name of your drive. (e.g. `/dev/sda`, `/dev/nvme0n1` and `/dev/mmcblk0`. Find yours by running `lsblk`.
+
 Wipe the disk before creating the partitions using `gdisk`:
 ```
-gdisk /dev/sda
+gdisk /dev/sdX
 ```
 + Press <kbd>x</kbd> to enter expert mode.
 + Press <kbd>z</kbd> to wipe the disk.
