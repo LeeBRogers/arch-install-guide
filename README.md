@@ -438,10 +438,10 @@ sudo pacman -S lib32-vulkan-radeon
 ### Hardware Video Acceleration
 To enable hardware acceleration install `libva-mesa-driver`,  `lib32-libva-mesa-driver` for VA-API and `mesa-vdpau` and `lib32-mesa-vdpau` for VDPAU:
 ```
-sudo pacman -S libva-mesa-driver
-sudo pacman -S lib32-libva-mesa-driver
-sudo pacman -S mesa-vdpau
-sudo pacman -S lib32-mesa-vdpau
+sudo pacman -S libva-mesa-driver lib32-libva-mesa-driver
+```
+```
+sudo pacman -S mesa-vdpau lib32-mesa-vdpau
 ```
 ### Early KMS Loading
 To load the GPU driver modules early, edit `/etc/mkinitcpio.conf` and add `[your-driver-module]` to the kernel MODULES:
@@ -487,6 +487,13 @@ partitionmanager | KDE Disk & Partion Manager.
 sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
 ```
 ### Audio Utilities & Bluetooth
+
+Packages | Description
+--------- | ----------
+alsa-utils | This includes (among other utilities) the `alsamixer` and `amixer` utilities.
+bluez | Provides the Bluetooth protocol stack.
+bluez-utils | Provides the `bluetoothctl` utility.
+
 To configure audio and enable Bluetooth:
 ```
 sudo pacman -S alsa-utils bluez bluez-utils
@@ -494,11 +501,6 @@ sudo pacman -S alsa-utils bluez bluez-utils
 ```
 systemctl enable bluetooth.service
 ```
-Packages | Description
---------- | ----------
-alsa-utils | This includes (among other utilities) the `alsamixer` and `amixer` utilities.
-bluez | Provides the Bluetooth protocol stack.
-bluez-utils | Provides the `bluetoothctl` utility.
 
 ### Personal Applications
 This is a list of independent applications that I personally use on my system:
