@@ -101,24 +101,7 @@ Recommended partition scheme:
 | `/`             | Remaining space| Linux filesystem| 
 
 ### Create partitions:
-The disks are assigned to a block device such as `/dev/sda`, `/dev/nvme0n1` and `/dev/mmcblk`. 
 
-List the disks to find the device name:
-
-```
-fdisk -l
-```
-Take note of the block device name of the disk you want to use for the installation. In this example it is `/dev/sda`:
-
-```
-Disk /dev/sda: 64 GiB, 68719476736 bytes, 134217728 sectors
-Disk model: VBOX HARDDISK   
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: A7B0EEB0-2290-4E4B-AD46-F0EFC0B1CBE0
-```
 Wipe the disk before creating the partitions using `gdisk`:
 ```
 gdisk /dev/sda
@@ -129,7 +112,7 @@ gdisk /dev/sda
 
 Then create the partitions with `cgdisk`:
 ```
-cgdisk /dev/sda
+cgdisk /dev/sdX
 ```
 Create `boot` partition:
 + Navigate to <kbd>New</kbd> and hit <kbd>Enter</kbd>
@@ -159,46 +142,36 @@ Create `root` partition:
 ### Formatting
 After creating the partitions they need to be formatted with suitable filesystems:
   
-Format `/dev/sda1` as `FAT32`. This will be the `boot` partition.
+Format `/dev/sdX1` as `FAT32`. This will be the `boot` partition.
 ```
 mkfs.fat -F 32 /dev/sda1 
 ```
 Create the `swap` and enable it:
 ```
-mkswap /dev/sda2 
-swapon /dev/sda2
+mkswap /dev/sdX2 
+swapon /dev/sdX2
 ```
-Format `/dev/sda3` as `EXT4`. This will be the `root` partition.
+Format `/dev/sdX3` as `EXT4`. This will be the `root` partition.
 ```
-mkfs.ext4 /dev/sda3
+mkfs.ext4 /dev/sdX3
 ```
 ### Mounting the file systems
 Create and mount the partitions to their respective directories.
 
-Mount `/dev/sda3` to `mnt`. This will be `/`.
+Mount `/dev/sdX3` to `mnt`. This will be `/`.
 ```
-mount /dev/sda3 /mnt
+mount /dev/sdX3 /mnt
 ```
 Create a `/boot` mountpoint:
 ```
 mkdir /mnt/boot
 ```
-Mount `/dev/sda1` to `/mnt/boot`. This will be `/boot`.
+Mount `/dev/sdX1` to `/mnt/boot`. This will be `/boot`.
 ```
-mount /dev/sda1 /mnt/boot
+mount /dev/sdX1 /mnt/boot
 ```
 The `swap` partition does not need to be mounted since it is enabled.
 
-Check the partitions are correct using the `lsblk` command:
-```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-loop0    7:0    0 701.3M  1 loop /run/archiso/airootfs
-sda      8:0    0    64G  0 disk 
-├─sda1   8:1    0   512M  0 part 
-├─sda2   8:2    0     4G  0 part 
-└─sda3   8:3    0  59.5G  0 part 
-sr0     11:0    1 850.3M  0 rom  /run/archiso/bootmnt
-```
 # Base System Installation
 
 ### Install base system
