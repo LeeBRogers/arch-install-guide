@@ -80,7 +80,7 @@ The ping should output a response if connected:
 + Proceed to the next step when an internet connection is established.
 
 #### Wi Fi
-Connect to Wi Fi interface using iwctl:
+Connect to a wireless interface using iwctl:
 ```
 iwctl
 device list
