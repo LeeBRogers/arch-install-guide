@@ -488,12 +488,11 @@ sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
 ```
 ### Audio Utilities & Bluetooth
 
-Packages | Description
-
 Install audio utilities and bluetooth:
 ```
 sudo pacman -S alsa-utils bluez bluez-utils
 ```
+Packages | Description
 --------- | ----------
 alsa-utils | This includes (among other utilities) the `alsamixer` and `amixer` utilities.
 bluez | Provides the Bluetooth protocol stack.
