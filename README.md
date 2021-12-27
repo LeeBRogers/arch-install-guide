@@ -491,6 +491,9 @@ To configure audio and enable Bluetooth:
 ```
 sudo pacman -S alsa-utils bluez bluez-utils
 ```
+```
+systemctl enable bluetooth.service
+```
 Packages | Description
 --------- | ----------
 alsa-utils | This includes (among other utilities) the `alsamixer` and `amixer` utilities.
@@ -552,7 +555,7 @@ sudo ufw limit ssh
 Enable the service:
 ```
 sudo ufw enable
-sudo systemctl enable ufw.service
+systemctl enable ufw.service
 ```
 ## Maintenance & Performance Tuning
 
@@ -561,14 +564,14 @@ If you use an SSD, you can enable periodic TRIM to optimise drive performance an
 
 Enable the service:
 ```
-sudo systemctl enable fstrim.timer
+systemctl enable fstrim.timer
 ```
 
 ### Package Cache Hook
 To improve system performance enable `paccache.timer` which will clear the package cache weekly.
 ```
 sudo pacman -S pacman-contrib
-sudo systemctl enable paccache.timer
+systemctl enable paccache.timer
 ```
 ### Update Mirrorlist
 The mirrorlist should be configured for faster download speeds.
@@ -593,8 +596,8 @@ Configure `/etc/xdg/reflector/reflector.conf`:
 ```
 Then enable and start `systemctl reflector.timer` to rank the mirrors weekly:
 ```
-sudo systemctl enable reflector.timer
-sudo systemctl start reflector.timer
+systemctl enable reflector.timer
+systemctl start reflector.timer
 ```
 You can create a pacman hook that will start reflector.service and remove the .pacnew file created every time pacman-mirrorlist gets an upgrade:
 Create the file `/etc/pacman.d/hooks/mirrorupgrade.hook` and edit it:
