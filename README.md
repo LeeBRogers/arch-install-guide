@@ -432,6 +432,7 @@ kate | Text Editor.
 kcalc | Scientific Calculator.
 spectacle | KDE screenshot capture utility.
 partitionmanager | KDE Disk & Partion Manager.
+gwenview | KDE Image viewer.
 
 ```
 sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
