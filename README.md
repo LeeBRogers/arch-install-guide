@@ -464,7 +464,6 @@ Packages | Description
 firefox | Mozilla Firefox Web Browser.
 steam| A digital video game distribution service.
 mpv | Video player.
-spotify| Proprietary music streaming service. 
 git | Github command-line utility tools.
 neofetch | Neofetch is a command-line system information tool.
 keepassxc | Community driven password manager.
@@ -474,6 +473,7 @@ solaar | Logitech peripheral device manager.
 Packages | Description
 --------- | ----------
 timeshift | System restore/snapshot utility.
+spotify| Proprietary music streaming service. 
 corectrl | Hardware monitor & control utility.
 ### Final Reboot
 ```
