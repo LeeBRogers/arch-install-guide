@@ -435,7 +435,7 @@ partitionmanager | KDE Disk & Partion Manager.
 gwenview | KDE Image viewer.
 
 ```
-sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager
+sudo pacman -S plasma konsole dolphin ark kate kcalc spectacle partitionmanager gwenview
 ```
 ### Audio Utilities & Bluetooth
 
@@ -457,7 +457,7 @@ systemctl enable bluetooth.service
 ### Personal Applications
 This is a list of independent applications that I personally use on my system:
 ```
-yay -S firefox steam mpv spotify git timeshift neofetch
+sudo pacman -S firefox steam mpv git neofetch keepassxc solaar
 ```
 Packages | Description
 --------- | ----------
@@ -470,6 +470,9 @@ keepassxc | Community driven password manager.
 solaar | Logitech peripheral device manager.
 
 #### AUR Packages:
+```
+yay -S timeshift spotify corectrl
+```
 Packages | Description
 --------- | ----------
 timeshift | System restore/snapshot utility.
