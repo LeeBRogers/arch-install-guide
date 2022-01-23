@@ -480,6 +480,7 @@ Packages | Description
 timeshift | System restore/snapshot utility.
 spotify| Proprietary music streaming service. 
 corectrl | Hardware monitor & control utility.
+discord | VoIP service.
 ### Final Reboot
 ```
 reboot
