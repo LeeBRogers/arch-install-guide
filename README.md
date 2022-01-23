@@ -468,6 +468,7 @@ git | Github command-line utility tools.
 neofetch | Neofetch is a command-line system information tool.
 keepassxc | Community driven password manager.
 solaar | Logitech peripheral device manager.
+piper | Logitech mouse configurer.  
 htop | System monitor process viewer.
 
 #### AUR Packages:
