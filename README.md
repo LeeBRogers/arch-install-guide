@@ -474,7 +474,7 @@ htop | System monitor process viewer.
 
 #### AUR Packages:
 ```
-yay -S timeshift spotify corectrl
+yay -S timeshift spotify corectrl discord
 ```
 Packages | Description
 --------- | ----------
