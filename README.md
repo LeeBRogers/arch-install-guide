@@ -360,7 +360,7 @@ A display server is needed to process and manage the GUI. Install the `xorg` pac
 sudo pacman -S xorg xf86-video-your gpu type]
 ```
 + For AMD GPUs, install `xf86-video-amdgpu`
-+ For NVIDIA GPUs, install `nvidia and `nvidia-settings`. 
++ For NVIDIA GPUs, install `nvidia` and `nvidia-utils`. 
 + For legacy Radeon GPUs, install `xf86-video-ati`.
 + For Intel iGPU install `xf86-video-intel`
 ### Enable Multilib Repository
