@@ -414,7 +414,7 @@ MODULES=(amdgpu)
 ```
 Don't forget to regenerate the initramfs:
 ```
-sudo mkinitcpio -p linux
+sudo mkinitcpio -P
 ```
 ### Display Manager (SDDM)
 Install and enable SDDM:
