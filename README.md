@@ -527,6 +527,13 @@ Enable the service:
 sudo ufw enable
 systemctl enable ufw.service
 ```
+### Fonts
+
+Install the `noto-fonts-` group to provide font rendering coverage for the system and applications:
+```
+sudo pacman -S $(pacman -Ssq 'noto-fonts-*')`
+```
+
 ## Maintenance & Performance Tuning
 
 ### SSD TRIM
@@ -599,12 +606,6 @@ Edit the newly created file:
 options iwlmvm power_scheme=1
 ```
 **Note: Laptop users will want to keep the power saving features enabled to preserve battery.**
-
-### Fonts
-
-Install the `noto-fonts` group to provide font rendering coverage for the system and applications:
-
-`sudo pacman -S $(pacman -Ssq 'noto-fonts-*')`
 
 ## Tweaks
 
