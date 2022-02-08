@@ -278,7 +278,7 @@ Create a loader configuration file `/boot/loader/entries/arch.conf`:
 ```
 title   Arch Linux
 linux   /vmlinuz-linux
-initrd  /intel-ucode.img
+initrd  /amd-ucode.img
 initrd  /initramfs-linux.img
 options root=UUID=[UUID] rw quiet splash 
 ```
