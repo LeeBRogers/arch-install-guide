@@ -31,6 +31,7 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [AUR Helper](#install-aur-helper)
     * [PipeWire](#pipewire)
     * [Security](#firewall)
+    * [Fonts](#fonts)
   * [Maintenance & Performance](#maintenance--performance-tuning)
     * [SSD Trim](#ssd-trim)
     * [Package Cache](#package-cache-hook)
