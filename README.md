@@ -620,8 +620,7 @@ Create the powertop sysemd service and enable it:
 ```
 sudo touch /etc/systemd/system/powertop.service
 sudo nano /etc/systemd/system/powertop.service
-```
-```
+
 [Unit]
 Description=Powertop tunings
 
@@ -636,6 +635,9 @@ WantedBy=multi-user.target
 ```
 systemctl enable powertop.service
 ```
+Enable the `auto-cpufreq` daemon:
+```
+systemctl enable auto-cpufreq`
 ```
 ## Tweaks
 
