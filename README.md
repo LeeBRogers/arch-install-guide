@@ -638,7 +638,7 @@ systemctl enable powertop.service
 ```
 Enable the `auto-cpufreq` daemon:
 ```
-systemctl enable auto-cpufreq`
+systemctl enable auto-cpufreq
 ```
 ## Tweaks
 
