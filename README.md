@@ -599,7 +599,7 @@ Exec = /bin/sh -c 'systemctl start reflector.service; [ -f /etc/pacman.d/mirrorl
 ### Power Saving
 Power saving features can be disabled to improve network latency. 
 
-## Intel Wi Fi
+#### Intel Wi Fi
 
 If using an Intel Wi Fi card, you may wish to disable power saving state to reduce latency and improve connectivity:
 
