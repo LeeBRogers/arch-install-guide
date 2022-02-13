@@ -608,6 +608,35 @@ options iwlmvm power_scheme=1
 ```
 **Note: Laptop users will want to keep the power saving features enabled to preserve battery.**
 
+### Laptop Power Management
+
+Install `powertop` and `auto-cpufreq` for better system and battery optimisation:
+
+```
+sudo pacman -S powertop
+sudo pacman -S auto-cpufreq
+````
+Create the powertop sysemd service and enable it:
+```
+sudo touch /etc/systemd/system/powertop.service
+sudo nano /etc/systemd/system/powertop.service
+```
+```
+[Unit]
+Description=Powertop tunings
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/powertop --auto-tune
+
+[Install]
+WantedBy=multi-user.target
+```
+```
+systemctl enable powertop.service
+```
+```
 ## Tweaks
 
 Let's make some system tweaks for better optimisation.
