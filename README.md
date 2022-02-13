@@ -616,11 +616,12 @@ Install `powertop` and `auto-cpufreq` for better system and battery optimisation
 sudo pacman -S powertop
 sudo pacman -S auto-cpufreq
 ````
-Create the powertop sysemd service and enable it:
+Create the powertop `systemd` service and enable it:
 ```
 sudo touch /etc/systemd/system/powertop.service
 sudo nano /etc/systemd/system/powertop.service
-
+```
+```
 [Unit]
 Description=Powertop tunings
 
