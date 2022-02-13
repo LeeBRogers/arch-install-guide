@@ -472,16 +472,6 @@ neofetch | Neofetch is a command-line system information tool.
 keepassxc | Community driven password manager.
 htop | System monitor process viewer.
 
-#### AUR Packages:
-```
-yay -S timeshift spotify corectrl discord
-```
-Packages | Description
---------- | ----------
-timeshift | System restore/snapshot utility.
-spotify| Proprietary music streaming service. 
-corectrl | Hardware monitor & control utility.
-discord | VoIP service.
 ### Final Reboot
 ```
 reboot
