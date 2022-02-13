@@ -522,7 +522,11 @@ systemctl enable ufw.service
 
 Install the `noto-fonts-` group to provide font rendering coverage for the system and applications:
 ```
-sudo pacman -S $(pacman -Ssq 'noto-fonts-*')`
+sudo pacman -S $(pacman -Ssq noto-fonts)
+```
+Install `ttf-liberation` for Steam font support:
+```
+sudo pacman -S ttf-liberation
 ```
 
 ## Maintenance & Performance Tuning
