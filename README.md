@@ -614,10 +614,6 @@ Install `powertop` and `auto-cpufreq` for better system and battery optimisation
 sudo pacman -S powertop
 sudo pacman -S auto-cpufreq
 ````
-Install `acpid` and `acpid_call` for handling ACPI events:
-```
-sudo pacman -S acpid acpid_call
-```
 Create the powertop `systemd` service and enable it:
 ```
 sudo touch /etc/systemd/system/powertop.service
@@ -642,6 +638,11 @@ Enable the `auto-cpufreq` daemon:
 ```
 systemctl enable auto-cpufreq
 ```
+Install `acpid` and `acpid_call` for handling ACPI events:
+```
+sudo pacman -S acpid acpid_call
+```
+
 ## Tweaks
 
 Let's make some system tweaks for better optimisation.
