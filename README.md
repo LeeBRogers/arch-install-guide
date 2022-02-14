@@ -506,6 +506,8 @@ sudo pacman -S pipewire-pulse
 
 MAC randomisation can be used for increased privacy by not disclosing your real MAC address to the network.
 
+#### For NetworkManager
+
 Create and edit `/etc/NetworkManager/conf.d/wifi_rand_mac.conf` with the following:
 ```
 [device-mac-randomization]
