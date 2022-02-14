@@ -501,6 +501,24 @@ sudo pacman -S pipewire
 sudo pacman -S pipewire-pulse
 ```
 ## Security
+
+### Mac Randomisation
+
+MAC randomisation can be used for increased privacy by not disclosing your real MAC address to the network.
+
+Create and edit `/etc/NetworkManager/conf.d/wifi_rand_mac.conf` with the following:
+```
+[device-mac-randomization]
+# "yes" is already the default for scanning
+wifi.scan-rand-mac-address=yes
+ 
+[connection-mac-randomization]
+# Randomize MAC for every ethernet connection
+ethernet.cloned-mac-address=random
+# Generate a random MAC for each WiFi and associate the two permanently.
+wifi.cloned-mac-address=stable
+```
+
 ### Firewall
 Arch Linux does not have any ports open by default. However, it is recommended to install a suitable Firewall for better security:
 ```
