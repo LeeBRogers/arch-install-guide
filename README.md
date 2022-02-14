@@ -641,6 +641,11 @@ Install `acpid` and `acpid_call` for handling ACPI events:
 ```
 sudo pacman -S acpid acpid_call
 ```
+Enable `acpid`:
+
+```
+systemctl enable acpid.service
+```
 
 ## Tweaks
 
