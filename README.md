@@ -591,7 +591,6 @@ Depends = reflector
 Exec = /bin/sh -c 'systemctl start reflector.service; [ -f /etc/pacman.d/mirrorlist.pacnew ] && rm /etc/pacman.d/mirrorlist.pacnew'
 ```
 ### Power Saving
-Power saving features can be disabled to improve network latency. 
 
 #### Intel Wi Fi
 
