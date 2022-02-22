@@ -354,7 +354,7 @@ Before installing any other packages, update the system:
 sudo pacman -Syu
 ```
 
-### Xorg & GPU Drivers
+### Display Server & GPU Drivers
 A display server is needed to process and manage the GUI. Install the `xorg` package and the Xorg display drivers:
 ```
 sudo pacman -S xorg xf86-video-your gpu type]
@@ -363,6 +363,19 @@ sudo pacman -S xorg xf86-video-your gpu type]
 + For NVIDIA GPUs, install `nvidia` and `nvidia-utils`. 
 + For legacy Radeon GPUs, install `xf86-video-ati`.
 + For Intel iGPU install `xf86-video-intel`
+
+#### Wayland Support
+
+Wayland is a modern display server that aims to replace the traditional X11 protocol. To enable Wayland support on the `KDE Plasma` desktop enviroment, install `plasma-wayland-session`:
+
+```
+sudo pacman -S plasma-wayland-session
+```
+For NVIDIA users, also install `egl-wayland`:
+```
+sudo pacman -S egl-wayland`
+```
+
 ### Enable Multilib Repository
 Multilib includes 32-bit software and library applications. (e.g. Steam).
 
