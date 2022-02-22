@@ -373,7 +373,7 @@ sudo pacman -S plasma-wayland-session
 ```
 For NVIDIA users, also install `egl-wayland`:
 ```
-sudo pacman -S egl-wayland`
+sudo pacman -S egl-wayland
 ```
 
 ### Enable Multilib Repository
