@@ -21,7 +21,7 @@ The purpose of this guide is to install and configure Arch Linux with KDE Plasma
     * [Add user](#users)
     * [Sudo Command](#sudoers)
   * [User Login](#login-as-user)
-    * [Display Server & GPU Drivers](#displayserver--gpu-drivers)
+    * [Display Server & GPU Drivers](#display-server--gpu-drivers)
     * [Multilib Repository](#enable-multilib-repository)
     * [Display Manager (SDDM)](#display-manager---sddm)
     * [Audio & Bluetooth](#audio-utilities--bluetooth)
